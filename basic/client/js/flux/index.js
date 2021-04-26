@@ -26,6 +26,12 @@ export const clearError = () => ({
   payload: undefined,
 });
 
+const ADD_TODO_ACTION_TYPE = "Create add todo action (regiser new todo)";
+export const createAddTodoAction = () => ({
+  type: ADD_TODO_ACTION_TYPE,
+  payload: todocontent,
+});
+
 /**
  * Store Creator
  */
