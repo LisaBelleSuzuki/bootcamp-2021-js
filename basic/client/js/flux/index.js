@@ -29,7 +29,7 @@ export const clearError = () => ({
 const ADD_TODO_ACTION_TYPE = "Create add todo action (regiser new todo)";
 export const createAddTodoAction = () => ({
   type: ADD_TODO_ACTION_TYPE,
-  payload: todocontent,
+  payload: "",
 });
 
 /**
@@ -58,6 +58,17 @@ const reducer = async (prevState, { type, payload }) => {
     }
     case CLEAR_ERROR: {
       return { ...prevState, error: null };
+    }
+    case ADD_TODO_ACTION_TYPE: {
+      try{
+        const newTodoList = [
+          ...prevState.todoList,
+          payload,
+        ];
+        return { newTodoList, error: null};
+      } catch(err) {
+        return { ...prevState, error: err}
+      }
     }
     default: {
       throw new Error("unexpected action type: %o", { type, payload });
