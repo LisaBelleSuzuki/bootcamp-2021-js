@@ -47,7 +47,7 @@ $ cd server && npm run start
 
 ![](./.meta/create.gif)
 
-- [ ] `js/components/todo-form.js` を編集して，作成ボタンに `.addEventListener` を使ってイベントハンドラを登録する，ログには適当に `clicked` などを出力しよう, todo 名は `.todo-form__input` タグに入力される，作成ボタンは `.todo-form__submit` に入力される
+- [x] `js/components/todo-form.js` を編集して，作成ボタンに `.addEventListener` を使ってイベントハンドラを登録する，ログには適当に `clicked` などを出力しよう, todo 名は `.todo-form__input` タグに入力される，作成ボタンは `.todo-form__submit` に入力される
   - hint: `Element: click イベント`
   - hint: `EventTarget.addEventLlistener`
 - [ ] TODO を作成するという action creator を `js/flux/index.js` に実装しよう `createFetchTodoListAction` が参考になるだろう，このとき payload に todo 名を入れるようにしよう
