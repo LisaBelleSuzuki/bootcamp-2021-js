@@ -1,3 +1,8 @@
+import store from "../store.js";
+import {
+  createClickCheckboxAction,
+} from "../flux/index.js";
+
 class Todo {
   constructor(parent, { id, name, done }) {
     this.parent = parent;
@@ -7,11 +12,11 @@ class Todo {
 
   mount() {
     if (this.mounted) return;
+    // TODOのチェックボックスが押されたときの処理
+    this.element.querySelector(".todo-toggle").addEventListener("click", function(){
+      store.dispatch(createClickCheckboxAction(this.getAttribute("data-todo-id"), this.value=="checked"));
+    });
     // TODO: ここにTODOの削除ボタンが押されたときの処理を追記
-    // TODO: ここにTODOのチェックボックスが押されたときの処理を追記
-    this.element.querySelector(".todo-toggle").addEventListener("click", () =>
-      console.log("checkbox clicked!!")
-    );
     this.mounted = true;
   }
 

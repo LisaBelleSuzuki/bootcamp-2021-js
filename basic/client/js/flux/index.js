@@ -32,6 +32,13 @@ export const createAddTodoAction = (input_text) => ({
   payload: input_text,
 });
 
+const CLICK_CHECKBOX = "Click checkbox";
+export const createClickCheckboxAction = (todo_id, is_done) => ({
+  type: CLICK_CHECKBOX,
+  payload: {todo_id, is_done},
+});
+
+
 /**
  * Store Creator
  */
@@ -74,6 +81,14 @@ const reducer = async (prevState, { type, payload }) => {
       } catch(err) {
         return { ...prevState, error: err}
       }
+    }
+    case CLICK_CHECKBOX: {
+      // checkboxがクリックされた時の処理を追記
+      // TODO: 該当のtodoのcheckを入れたり消したり。
+      const {todo_id, is_done} = payload;
+      console.log(payload);
+      prevState.todoList[todo_id].done = !is_done;
+      return { ...prevState, error: null}
     }
     default: {
       throw new Error("unexpected action type: %o", { type, payload });
