@@ -54,7 +54,7 @@ $ cd server && npm run start
 - [x] ActionCreator を作成したら  `js/components/todo-form.js` で Action を作成して `store.dispatch()` を使って dispatch しよう，そのとき devtool のログに Action が dispatch されているかどうかを確認しよう
 - [x]  `js/flux/index.js` の `reducer` 関数に，TODO 作成アクションが通知されたケースの処理を実装しよう，サーバーに接続する前にクライアント上の store が 保持している `{ todoList: [] }` を更新しよう
   - hint: `Array.prototype.push`
-- `fetch()` を使って実際にAPIを叩いてサーバー上のデータを更新しよう
+- [x] `fetch()` を使って実際にAPIを叩いてサーバー上のデータを更新しよう
   - hint: `Fetch API`
 
 #### MEMO

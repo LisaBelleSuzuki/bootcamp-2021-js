@@ -61,15 +61,16 @@ const reducer = async (prevState, { type, payload }) => {
     }
     case ADD_TODO_ACTION_TYPE: {
       try{
-        const newTodoList = [
-          ...prevState.todoList,
-          payload,
-        ];
-        let newState = prevState;
-        newState.todoList = newTodoList;
-        console.log("newState.todoList: ", newState.todoList);
-        console.log("newState: ", newState);
-        return { ...newState, error: null};
+        const params = {
+          headers,
+          method: 'POST',
+          body: JSON.stringify({
+            name: payload,
+          })
+        };
+        const resp = await fetch(api, params).then((d) => d.json());
+        prevState.todoList.push(resp);
+        return { todoList: prevState.todoList, error: null };
       } catch(err) {
         return { ...prevState, error: err}
       }

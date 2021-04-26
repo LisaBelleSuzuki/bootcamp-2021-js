@@ -1,6 +1,6 @@
 import store from "../store.js";
 import {
-  createAddTodoAction
+  createAddTodoAction,
 } from "../flux/index.js";
 
 class TodoForm {
@@ -8,7 +8,6 @@ class TodoForm {
     this.button = document.querySelector(".todo-form__submit");
     this.form = document.querySelector(".todo-form__input");
     console.log("yeah")
-
   }
 
   mount() {
