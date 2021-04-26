@@ -26,10 +26,10 @@ export const clearError = () => ({
   payload: undefined,
 });
 
-const ADD_TODO_ACTION_TYPE = "Create add todo action (regiser new todo)";
-export const createAddTodoAction = () => ({
+const ADD_TODO_ACTION_TYPE = "Create add todo action (register new todo)";
+export const createAddTodoAction = (input_text) => ({
   type: ADD_TODO_ACTION_TYPE,
-  payload: "",
+  payload: input_text,
 });
 
 /**
@@ -65,7 +65,11 @@ const reducer = async (prevState, { type, payload }) => {
           ...prevState.todoList,
           payload,
         ];
-        return { newTodoList, error: null};
+        let newState = prevState;
+        newState.todoList = newTodoList;
+        console.log("newState.todoList: ", newState.todoList);
+        console.log("newState: ", newState);
+        return { ...newState, error: null};
       } catch(err) {
         return { ...prevState, error: err}
       }
