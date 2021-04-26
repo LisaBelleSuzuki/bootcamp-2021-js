@@ -9,6 +9,9 @@ class Todo {
     if (this.mounted) return;
     // TODO: ここにTODOの削除ボタンが押されたときの処理を追記
     // TODO: ここにTODOのチェックボックスが押されたときの処理を追記
+    this.element.querySelector(".todo-toggle").addEventListener("click", () =>
+      console.log("checkbox clicked!!")
+    );
     this.mounted = true;
   }
 
